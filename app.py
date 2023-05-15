@@ -35,6 +35,8 @@ def registration_handler():
         password = request.form["password"]
         if not validator_email.is_valid_lenght(login):
             flash("Убедитесь , что вы ввели допустимую длину")
+
+
         else:
             pswd_hash = generate_password_hash(password)
             if check_password_hash(pswd_hash, password):
