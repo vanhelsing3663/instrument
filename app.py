@@ -7,6 +7,7 @@ from config import DATABASE, SECRET_KEY
 app = Flask(__name__)
 
 
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123090704Qq@localhost/alex_sql'
 app.secret_key = 'mysecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE
@@ -51,10 +52,6 @@ def registration_handler():
             flash("Убедитесь , что в вашем email присутствует символ @")
         elif not validator_password.is_valid_lenght(password):
             flash("Убедитесь , что вы ввели пароль более 8 символов")
-        elif not validator_password.checking_that_the_password_contains_at_least_one_digit(password):
-            flash("Убедитесь , что в вашем пароле присутствует хотя бы одна цифра")
-        elif not validator_password.has_uppercase(password):
-            flash("Убедитесь , что в вашем пароле есть хотя бы одна заглавная буква")
         else:
             pswd_hash = generate_password_hash(password)
             if check_password_hash(pswd_hash, password):
