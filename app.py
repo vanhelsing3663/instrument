@@ -22,12 +22,10 @@ class Users(db.Model):
     password = db.Column(db.String(256), nullable=False)
 
 
-
-
-
-
-
-
+class Is_active(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(256), unique=True, nullable=False)
+    password = db.Column(db.String(256), nullable=False)
 
 
 @app.route('/register', methods=["GET", "POST"])
