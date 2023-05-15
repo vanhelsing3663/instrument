@@ -22,6 +22,14 @@ class Users(db.Model):
     password = db.Column(db.String(256), nullable=False)
 
 
+
+
+
+
+
+
+
+
 @app.route('/register', methods=["GET", "POST"])
 def registration_handler():
     """Примерная страница регистрации в будущем будет меняться"""
